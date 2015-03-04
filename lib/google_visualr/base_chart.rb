@@ -45,7 +45,7 @@ module GoogleVisualr
       js << "\n    #{@data_table.to_js}"
       js << "\n    var chart = new google.visualization.#{chart_name}(document.getElementById('#{element_id}'));"
       js << "\n    google.visualization.events.addListener(chart, 'select', function() { jQuery.fn.bubble_select(chart.getSelection()); });"
-      js << "\n    google.visualization.events.addListener(chart, 'ready', function () { var imgUri = chart.getImageURI(); document.getElementById('chart_image').src = imgUri; });"
+      js << "\n    google.visualization.events.addListener(chart, 'ready', function () { var imgUri = chart.getImageURI(); document.getElementById('chart_image').src = imgUri; console.log('image saved'); });"
       js << "\n    chart.draw(data_table, #{js_parameters(@options)});"
       js << "\n  };"
       js << "\n</script>"
